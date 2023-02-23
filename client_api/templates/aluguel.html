@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RP Flask REST API</title>
+
+</head>
+
+<body>
+    <h1>Busca Aluguel</h1>
+    <form action="/aluguel" method="get">
+        <input placeholder="Digite o id do aluguel" name="aluguel" type="text">
+        <button type="submit" name="buscar_aluguel">Buscar</button>
+        {% if resultados_aluguel %}
+        <ul>
+            <li>{{ resultados_aluguel['cpf_locatario'] }}</li>
+            <li>{{ resultados_aluguel['id_carro'] }}</li>
+            <li>{{ resultados_aluguel['timestamp'] }}</li>
+        </ul>
+        {% else %}
+        <p>Nenhum aluguel encontrado.</p>
+        {% endif %}
+    </form>
+</body>
+
+</html>

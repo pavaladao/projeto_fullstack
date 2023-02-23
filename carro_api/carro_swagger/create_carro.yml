@@ -1,0 +1,78 @@
+swagger: '2.0'
+info:
+  title: API de Gerenciamento de Carros
+  description: API para gerenciamento de carros
+  version: 1.0.0
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /carros:
+    post:
+      summary: Cria um novo carro
+      description: Cria um novo registro de carro com as informações de marca, modelo, ano e placa.
+      parameters:
+        - in: body
+          name: body
+          description: Informações do carro a ser criado.
+          required: true
+          schema:
+            type: object
+            properties:
+              marca:
+                type: string
+                example: Fiat
+              modelo:
+                type: string
+                example: Palio
+              ano:
+                type: integer
+                example: 2015
+              placa:
+                type: string
+                example: ABC1234
+      responses:
+        201:
+          description: Registro criado com sucesso.
+          schema:
+            type: object
+            properties:
+              carro:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  marca:
+                    type: string
+                    example: Fiat
+                  modelo:
+                    type: string
+                    example: Palio
+                  ano:
+                    type: integer
+                    example: 2015
+                  placa:
+                    type: string
+                    example: ABC1234
+              message:
+                type: string
+                example: Carro Incluido
+        400:
+          description: Erro na requisição enviada.
+          schema:
+            type: object
+            properties:
+              erro:
+                type: string
+                example: Requisição inválida. Verifique os dados enviados.
+        500:
+          description: Erro interno do servidor.
+          schema:
+            type: object
+            properties:
+              erro:
+                type: string
+                example: Ocorreu um erro ao criar o registro. Entre em contato com o suporte.

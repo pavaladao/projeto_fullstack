@@ -1,0 +1,30 @@
+swagger: '2.0'
+info:
+  title: API de Gerenciamento de Carros
+  version: '1.0'
+produces:
+  - application/json
+tags:
+  - Carro
+parameters:
+  - name: id
+    in: path
+    type: integer
+    required: true
+responses:
+  201:
+    description: Carro excluído com sucesso
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensagem de sucesso
+  404:
+    description: Carro não encontrado
+    schema:
+      type: object
+      properties:
+        erro:
+          type: string
+          description: Mensagem de erro

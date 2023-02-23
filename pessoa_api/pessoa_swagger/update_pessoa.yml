@@ -1,0 +1,51 @@
+/pessoas/{cpf}:
+  put:
+    summary: Edita os dados de uma pessoa.
+    tags:
+      - Pessoas
+    parameters:
+      - in: path
+        name: cpf
+        required: true
+        description: CPF da pessoa a ser editada
+        schema:
+          type: integer
+      - in: body
+        name: body
+        required: true
+        description: Dados da pessoa a serem atualizados
+        schema:
+          type: object
+          required:
+            - nome
+            - idade
+          properties:
+            nome:
+              type: string
+              description: Nome da pessoa
+            idade:
+              type: integer
+              description: Idade da pessoa
+    responses:
+      '201':
+        description: Pessoa editada com sucesso
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                pessoa:
+                  $ref: '#/components/schemas/Pessoa'
+                message:
+                  type: string
+                  description: Mensagem informando que a pessoa foi editada
+      '404':
+        description: Pessoa não encontrada
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                erro:
+                  type: string
+                  description: Mensagem informando que a pessoa não foi encontrada

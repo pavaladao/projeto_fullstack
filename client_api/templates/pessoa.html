@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RP Flask REST API</title>
+
+</head>
+
+<body>
+    <h1>Busca Pessoa</h1>
+    <form action="/pessoa" method="get">
+        <input placeholder="Digite o CPF" name="pessoa" type="text">
+        <button type="submit" name="buscar_pessoa">Buscar</button>
+        {% if resultados_pessoa %}
+        <ul>
+            <li>{{ resultados_pessoa['nome'] }}</li>
+            <li>{{ resultados_pessoa['idade'] }}</li>
+        </ul>
+        {% else %}
+        <p>Nenhuma pessoa encontrado.</p>
+        {% endif %}
+    </form>
+</body>
+
+</html>

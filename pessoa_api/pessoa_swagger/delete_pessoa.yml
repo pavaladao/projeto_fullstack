@@ -1,0 +1,33 @@
+/pessoas/{cpf}:
+  delete:
+    summary: Exclui uma pessoa.
+    tags:
+      - Pessoas
+    parameters:
+      - in: path
+        name: cpf
+        required: true
+        description: CPF da pessoa a ser excluída
+        schema:
+          type: integer
+    responses:
+      '201':
+        description: Pessoa excluída com sucesso
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  description: Mensagem informando que a pessoa foi excluída
+      '404':
+        description: Pessoa não encontrada
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                erro:
+                  type: string
+                  description: Mensagem informando que a pessoa não

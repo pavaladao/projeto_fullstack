@@ -1,0 +1,6 @@
+/pessoas:
+  get:
+    summary: Rota para listar todas as pessoas cadastradas
+    responses:
+      '200':
+        description: Lista todas as pessoas cadastradas

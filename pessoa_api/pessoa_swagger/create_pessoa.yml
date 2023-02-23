@@ -1,0 +1,25 @@
+/pessoas:
+  post:
+    summary: Rota para cadastrar uma nova pessoa
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - cpf
+              - nome
+              - idade
+            properties:
+              cpf:
+                type: integer
+                description: CPF da pessoa a ser cadastrada
+              nome:
+                type: string
+                description: Nome da pessoa a ser cadastrada
+              idade:
+                type: integer
+                description: Idade da pessoa a ser cadastrada
+    responses:
+      '201':
+        description: Retorna a pessoa cadastrada

@@ -1,0 +1,15 @@
+/pessoas/{cpf}:
+  get:
+    summary: Rota para buscar uma pessoa pelo CPF
+    parameters:
+      - in: path
+        name: cpf
+        required: true
+        description: CPF da pessoa a ser buscada
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: Retorna a pessoa correspondente ao CPF
+      '404':
+        description: Pessoa não encontrada
